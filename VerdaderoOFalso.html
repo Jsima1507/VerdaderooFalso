@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verdadero o Falso</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    #feedback {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    #options {
+      display: flex;
+      justify-content: center;
+    }
+    .option {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: lightgray;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Verdadero o Falso</h1>
+  <div id="question"></div>
+  <div id="feedback"></div>
+  <div id="options">
+    <div class="option" onclick="checkAnswer(true)">Verdadero</div>
+    <div class="option" onclick="checkAnswer(false)">Falso</div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        question: "El velociraptor es el dinousario mas veloz.",
+        answer: false
+      },
+      {
+        question: "Los dinousarios estuvieron en la tierra durante 170 millones de años.",
+        answer: false
+      },
+      {
+        question: "Los dinousarios murieron por la errupción de un volcán.",
+        answer: false
+      },
+      {
+        question: "Los sauropodos son los dinousarios con el cuello largo",
+        answer: true
+      },
+      {
+        question: "Los anquilosaurio fueron los dinousarios dominantes.",
+        answer: false
+      },
+      {
+        question: "Los pterodáctilos son dinosaurios.",
+        answer: true
+      },
+      {
+        question: "Los dinousarios viven actualmente.",
+        answer: false
+      }
+    ];
+
+    var currentQuestion = 0;
+    var feedbackElement = document.getElementById("feedback");
+    var questionElement = document.getElementById("question");
+
+    function displayQuestion() {
+      if (currentQuestion < questions.length) {
+        questionElement.textContent = questions[currentQuestion].question;
+        feedbackElement.textContent = "";
+      } else {
+        questionElement.textContent = "Fin del juego. ¡Gracias por jugar!";
+        document.getElementById("options").style.display = "none";
+      }
+    }
+
+    function checkAnswer(userAnswer) {
+      var correctAnswer = questions[currentQuestion].answer;
+
+      if (userAnswer === correctAnswer) {
+        feedbackElement.textContent = "¡Respuesta correcta!";
+        feedbackElement.style.color = "green";
+      } else {
+        feedbackElement.textContent = "¡Respuesta incorrecta!";
+        feedbackElement.style.color = "red";
+      }
+
+      currentQuestion++;
+      setTimeout(displayQuestion, 1000);
+    }
+
+    // Iniciar el juego
+    displayQuestion();
+  </script>
+</body>
+</html>
+
+<style>
+  body {
+    background-image: url("https://s1.eestatic.com/2020/04/06/omicrono/omicrono_480463736_149829533_1706x960.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 18px;
+  }
+</style>
+
+<button onclick="window.location.href = 'file:///C:/Users/DELL/OneDrive/Documentos/Dinousariosxd/botones.HTML';">VOLVER A LA PANTALLA PRINCIPAL</button>
